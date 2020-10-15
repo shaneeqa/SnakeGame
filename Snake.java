@@ -51,6 +51,14 @@ public class Snake {
         }
     }
 
+    public boolean isMoving(){
+        return isMoving;
+    }
+
+    public void setIsMoving(boolean b){
+        isMoving = b;
+    }
+
     public int getXDir(){
         return xDir;
     }

@@ -29,6 +29,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener {
         //off screen graphics
         gfx.setColor(Color.black);
         gfx.fillRect(0, 0, 400, 400);
+        this.addKeyListener(this);
         snake.draw(gfx);
         //image
         g.drawImage(img, 0,0, null);
@@ -61,6 +62,11 @@ public class SnakeGame extends Applet implements Runnable, KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
+        if(!snake.isMoving()){
+            if(e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_RIGHT){
+                snake.setIsMoving(true);
+            }
+        }
         if(e.getKeyCode() == KeyEvent.VK_UP){
             //if going down already can't go up/reverse the action
             //if the snake is not going down we're allowing it to go up
