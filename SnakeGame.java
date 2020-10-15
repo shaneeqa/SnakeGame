@@ -40,6 +40,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener {
         } else{
             gfx.setColor(Color.RED);
             gfx.drawString("Game Over", 180, 150);
+            gfx.drawString("Score: " + token.getScore(), 180, 170);
         }
         //image
         g.drawImage(img, 0,0, null);
@@ -59,11 +60,12 @@ public class SnakeGame extends Applet implements Runnable, KeyListener {
             if(!gameOver){
                 snake.move();
                 this.checkGameOver();
+                token.snakeCollision();
             }
 
             this.repaint();
             try {
-                Thread.sleep(40);
+                Thread.sleep(40); // to make the game difficult decrease the sleeping time
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

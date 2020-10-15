@@ -48,6 +48,10 @@ public class Snake {
                 snakePoints.set(i, snakePoints.get(i - 1));
             }
             snakePoints.set(0, newStart);
+            if(elongate){
+                snakePoints.add(last);
+                elongate = false;
+            }
         }
     }
 
@@ -93,5 +97,9 @@ public class Snake {
 
     public int getY(){
         return snakePoints.get(0).getY();
+    }
+
+    public void setElongate(boolean b){
+        elongate = b;
     }
 }
